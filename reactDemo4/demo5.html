@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      table {
+          border: 1px solid #eee;
+          border-collapse: collapse;
+      }
+
+      th, td {
+          border: 1px solid #eee;
+          padding: 10px 16px;
+          text-align: center;
+      }
+
+      th {
+          background-color: #ccc;
+      }
+
+      .count {
+          margin: 0 5px;
+      }
+  </style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script src="./priceFormat.js"></script>
+<script type="text/babel">
+
+
+  class App extends React.Component {
+    constructor() {
+      super()
+      this.state = {
+        books: [
+          {
+            id: 1,
+            name: '《算法导论》',
+            date: '2006-9',
+            price: 85.00,
+            count: 2
+          },
+          {
+            id: 2,
+            name: '《UNIX编程艺术》',
+            date: '2006-2',
+            price: 59.00,
+            count: 1
+          },
+          {
+            id: 3,
+            name: '《编程珠玑》',
+            date: '2008-10',
+            price: 39.00,
+            count: 1
+          },
+          {
+            id: 4,
+            name: '《代码大全》',
+            date: '2006-3',
+            price: 128.00,
+            count: 1
+          },
+        ]
+      }
+    }
+
+    render() {
+      return (
+        <div>
+          <table className="table">
+            <thead>
+            <tr>
+              <th></th>
+              <th>书籍名称</th>
+              <th>出版日期</th>
+              <th>价格</th>
+              <th>购买数量</th>
+              <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {
+              this.state.books.map((book, index) => {
+                return (
+                  <tr>
+                    <td>{book.id}</td>
+                    <td>{book.name}</td>
+                    <td>{book.date}</td>
+                    <td>{priceFormat(book.price)}</td>
+                    <td>
+                      <button disabled = {book.count === 1? true : false}
+                              onClick={() => this.changeCount(index, -1)}
+                      >-</button>
+                      <span className="count">{book.count}</span>
+                      <button onClick={() => this.changeCount(index, 1)}>+</button>
+                    </td>
+                    <td>
+                      <button onClick={() => this.removeBooks(index)}>移除</button>
+                    </td>
+                  </tr>
+                )
+              })
+            }
+            </tbody>
+          </table>
+          <h2>总价格：{this.totalPrice()}</h2>
+        </div>
+
+      )
+    }
+
+    changeCount(index, type){
+      this.setState({
+        books: this.state.books.map((book,i) => {
+          if(index === i){
+            book.count += type
+          }
+          return book
+        })
+      })
+    }
+
+    removeBooks(index) {
+      this.setState({
+        books: this.state.books.filter((book, i) => i !== index)
+      })
+    }
+
+    totalPrice() {
+      let res = this.state.books.reduce((prev, cur) => {
+        return prev += cur.price * cur.count
+      }, 0)
+      return priceFormat(res)
+    }
+  }
+
+  ReactDOM.render(
+    <App/>,
+    document.querySelector('#app')
+  )
+</script>
+</body>
+</html>
