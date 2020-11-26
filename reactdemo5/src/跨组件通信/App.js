@@ -5,7 +5,7 @@ const UserContext = React.createContext({
   level: -1
 })
 
-// 函数组件要改写return，设置成为某个Context对象的Consumer
+// 函数组件要改写return，设置成为某个Context对象的Consumer,同时支持嵌套
 function ProfileHeader1() {
   return (
     <UserContext.Consumer>
