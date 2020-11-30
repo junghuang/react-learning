@@ -37,6 +37,7 @@ export default class TabControl extends Component {
     this.setState({
       currentIndex: index
     })
+    // 子传父时，接收从父组件传过来的事件，然后调用该事件进行通信
     const {tabControlClick} = this.props
     tabControlClick(index)
   }

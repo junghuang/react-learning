@@ -21,8 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ea1b855c-f5ca-43f8-b795-f6adfab572a0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactdemo5/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/reactdemo5/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactdemo5/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactdemo5/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +79,9 @@
       <option name="presentableId" value="Default" />
       <updated>1606280824169</updated>
       <workItem from="1606280825423" duration="9398000" />
-      <workItem from="1606356118377" duration="6011000" />
+      <workItem from="1606356118377" duration="6836000" />
+      <workItem from="1606440378230" duration="1284000" />
+      <workItem from="1606742400991" duration="309000" />
     </task>
     <servers />
   </component>
@@ -98,6 +98,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="528" y="101" key="#CSS" timestamp="1606394939132">
